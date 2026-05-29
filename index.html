@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صدى الطفولة | جزيرة الكنز</title>
+    <title>صدى الطفولة | النمر المقنع</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;900&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #00d2ff; --accent: #ff9800; --bg: #0b0f19; --card: #161e2e; }
@@ -88,7 +88,7 @@
     </div>
     <h2 id="status-msg">اضغط على رقم الحلقة للمشاهدة:</h2>
     <div class="episodes-grid" id="buttonsGrid"></div>
-    <p class="info-text">جميع حلقات جزيرة الكنز (26 حلقة) متوفرة الآن بجودة عالية</p>
+    <p class="info-text">جميع حلقات النمر المقنع (52 حلقة) متوفرة الآن بجودة عالية</p>
 </div>
 
 <!-- بنر أسفل الموقع -->
@@ -102,14 +102,14 @@
 <footer>جميع الحقوق محفوظة - صدى الطفولة &copy; 2026</footer>
 
 <script>
-    // إعدادات مسلسل جزيرة الكنز - 26 حلقة (يمكنك تغيير هذا الرقم)
-    const totalEpisodes = 26;
+    // إعدادات مسلسل النمر المقنع - 52 حلقة
+    const totalEpisodes = 52; // يمكنك تغيير هذا الرقم إذا كان العدد مختلفاً
     const episodeLinks = [];
 
-    // الحلقة 1 = 370، الحلقة 26 = 395
+    // الحلقة 1 = 571، الحلقة 52 = 622
     for (let i = 0; i < totalEpisodes; i++) {
-        let episodeId = 370 + i;
-        episodeLinks.push(`https://cartoony.net/watch/46/${episodeId}`);
+        let episodeId = 571 + i;
+        episodeLinks.push(`https://cartoony.net/watch/76/${episodeId}`);
     }
 
     const grid = document.getElementById('buttonsGrid');
@@ -145,7 +145,7 @@
             lockPage();
             player.style.display = 'block';
             iframe.src = link;
-            titleDisp.innerText = "أنت تشاهد الآن: جزيرة الكنز - الحلقة " + (index + 1);
+            titleDisp.innerText = "أنت تشاهد الآن: النمر المقنع - الحلقة " + (index + 1);
             document.querySelectorAll('.ep-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             setTimeout(() => { unlockPage(); }, 500);
