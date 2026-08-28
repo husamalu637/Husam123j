@@ -10,14 +10,17 @@
         * { user-select: none; }
         body { background-color: var(--bg); color: white; font-family: 'Cairo', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; overflow-x: hidden; position: relative; }
         header { width: 100%; background: linear-gradient(135deg, #00d2ff, #3a7bd5); padding: 40px 0; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        
+        /* حاويات الإعلانات (البنر العلوي والسفلي) */
         .banner-top, .banner-bottom { width: 100%; text-align: center; background: #0a0e15; padding: 20px 0; margin: 0 auto; display: flex; justify-content: center; align-items: center; border-radius: 12px; overflow-x: auto; }
         .banner-top { max-width: 900px; margin-top: 20px; margin-bottom: 10px; }
         .banner-bottom { max-width: 900px; margin-top: 30px; margin-bottom: 20px; }
+        
         .main-container { max-width: 900px; width: 95%; margin: 0 auto; text-align: center; }
         .video-wrapper-outer { position: relative; z-index: 1; }
         .video-display-area { background: #000; border-radius: 20px; overflow: hidden; border: 3px solid var(--primary); box-shadow: 0 0 30px rgba(0, 210, 255, 0.2); margin-bottom: 30px; display: none; position: relative; }
         .responsive-iframe { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
-        .responsive-iframe iframe { position: absolute; top: -160px; left: 0; width: 100%; height: calc(100% + 160px); border: 0; overflow: hidden; pointer-events: auto; }
+        .responsive-iframe iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; overflow: hidden; pointer-events: auto; }
         .episodes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); gap: 15px; background: var(--card); padding: 25px; border-radius: 20px; }
         .ep-btn { background: #252f44; color: white; border: 2px solid transparent; padding: 15px 0; border-radius: 12px; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
         .ep-btn:hover { background: var(--primary); transform: scale(1.1); border-color: white; }
@@ -29,19 +32,94 @@
 </head>
 <body>
 <header><h1>🎬 صدى الطفولة</h1><p>اختر رقم الحلقة وابدأ المشاهدة فوراً</p></header>
-<div class="banner-top"><script> atOptions = { 'key' : 'b8ba5b25ff25e41ea44c2df3a1b05378', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} }; </script><script src="https://www.highperformanceformat.com/b8ba5b25ff25e41ea44c2df3a1b05378/invoke.js"></script></div>
-<div class="main-container"><div class="video-wrapper-outer"><div id="videoPlayer" class="video-display-area"><div class="responsive-iframe"><iframe id="mainIframe" src="" allowfullscreen scrolling="no"></iframe></div><div id="episodeTitle" style="padding: 10px; background: var(--card); font-weight: bold;"></div></div></div><h2>اضغط على رقم الحلقة للمشاهدة:</h2><div class="episodes-grid" id="buttonsGrid"></div><p class="info-text">جميع حلقات جزيرة الكنز (26 حلقة) متوفرة الآن بجودة عالية</p></div>
-<div class="banner-bottom"><script> atOptions = { 'key' : 'b8ba5b25ff25e41ea44c2df3a1b05378', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} }; </script><script src="https://www.highperformanceformat.com/b8ba5b25ff25e41ea44c2df3a1b05378/invoke.js"></script></div>
+
+<!-- إعلان البنر العلوي -->
+<div class="banner-top">
+    <script> atOptions = { 'key' : 'b8ba5b25ff25e41ea44c2df3a1b05378', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} }; </script>
+    <script src="https://www.highperformanceformat.com/b8ba5b25ff25e41ea44c2df3a1b05378/invoke.js"></script>
+</div>
+
+<div class="main-container">
+    <div class="video-wrapper-outer">
+        <div id="videoPlayer" class="video-display-area">
+            <div class="responsive-iframe"><iframe id="mainIframe" src="" allowfullscreen sandbox="allow-same-origin allow-scripts allow-popups allow-forms" scrolling="no"></iframe></div>
+            <div id="episodeTitle" style="padding: 10px; background: var(--card); font-weight: bold;"></div>
+        </div>
+    </div>
+    <h2>اضغط على رقم الحلقة للمشاهدة:</h2>
+    <div class="episodes-grid" id="buttonsGrid"></div>
+    <p class="info-text">جميع حلقات جزيرة الكنز (26 حلقة) متوفرة الآن بجودة عالية</p>
+</div>
+
+<!-- إعلان البنر السفلي -->
+<div class="banner-bottom">
+    <script> atOptions = { 'key' : 'b8ba5b25ff25e41ea44c2df3a1b05378', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} }; </script>
+    <script src="https://www.highperformanceformat.com/b8ba5b25ff25e41ea44c2df3a1b05378/invoke.js"></script>
+</div>
+
 <footer>جميع الحقوق محفوظة - صدى الطفولة &copy; 2026</footer>
+
 <script>
-    const adLink = "https://www.profitablecpmratenetwork.com/e41dj2h87?key=bef514b5ca3fa945e7a3b60e4a9ef21a";
-    const totalEpisodes = 26;
-    const episodeLinks = []; for (let i = 0; i < totalEpisodes; i++) { episodeLinks.push(`https://cartoony.net/watch/46/${370 + i}`); }
-    const grid = document.getElementById('buttonsGrid'); const player = document.getElementById('videoPlayer'); const iframe = document.getElementById('mainIframe'); const titleDisp = document.getElementById('episodeTitle');
+    // رابط الإعلان المنبثق (Popup / Popunder) الذي سيفتح عند النقر على أي حلقة
+    const popupAdLink = "https://www.profitablecpmratenetwork.com/e41dj2h87?key=bef514b5ca3fa945e7a3b60e4a9ef21a";
+
+    // روابط حلقات جزيرة الكنز الـ 26 المدمجة بدقة
+    const episodeLinks = [
+        "https://meyon.com.ye/videos/embed/cd962f81-5a8e-43c2-aa2d-a98f19dd5573", // 1
+        "https://meyon.com.ye/videos/embed/025d5dee-60b6-412b-9a63-c1058dcfeac6", // 2
+        "https://meyon.com.ye/videos/embed/3f789276-5317-4c82-a359-aa41952759ff", // 3
+        "https://meyon.com.ye/videos/embed/a38db2d8-d3e4-4ea0-98a6-20427af93804", // 4
+        "https://meyon.com.ye/videos/embed/78aa5c8a-16a5-4e9d-9bf3-4412d5d53385", // 5
+        "https://meyon.com.ye/videos/embed/151fc8b5-033d-4b87-be4a-e5bd51402d00", // 6
+        "https://meyon.com.ye/videos/embed/7ce5744b-5193-4208-92aa-d928b0c5e332", // 7
+        "https://meyon.com.ye/videos/embed/551e7d20-655b-48fc-9d0a-7198750480c7", // 8
+        "https://meyon.com.ye/videos/embed/9fe8cd66-50c4-4059-8d1e-cd8a21e9a409", // 9
+        "https://meyon.com.ye/videos/embed/0cfe4c5e-6b68-49e5-845c-4cde1a10873c", // 10
+        "https://meyon.com.ye/videos/embed/1bc79cc2-344d-44b6-9428-9c17f694e77d", // 11
+        "https://meyon.com.ye/videos/embed/7b60e305-6af5-4886-a4da-8a1b0a7e0703", // 12
+        "https://meyon.com.ye/videos/embed/1ec8b9aa-be6f-43f1-9df2-edcfe81e2f54", // 13
+        "https://meyon.com.ye/videos/embed/4c4c07c7-b318-481a-89d4-8046477e10e3", // 14
+        "https://meyon.com.ye/videos/embed/b90a7d24-41f2-438d-8e02-ae6911dbc326", // 15
+        "https://meyon.com.ye/videos/embed/d4cd5239-4eb7-4c24-8e75-9c94aa90dac1", // 16
+        "https://meyon.com.ye/videos/embed/19e39101-a205-41d2-bb18-2c11d8238bfe", // 17
+        "https://meyon.com.ye/videos/embed/ec1baa31-62d0-48a4-8297-879feceba3ac", // 18
+        "https://meyon.com.ye/videos/embed/e2610277-61a3-468e-ab42-ddb65ad48602", // 19
+        "https://meyon.com.ye/videos/embed/668215f1-b6cc-4d47-916c-b0f3a8121569", // 20
+        "https://meyon.com.ye/videos/embed/d9d66822-44c8-4d7e-8fd2-36b3c321b1d9", // 21
+        "https://meyon.com.ye/videos/embed/9886a823-c676-4327-b5c4-33863da8d97b", // 22
+        "https://meyon.com.ye/videos/embed/16ee69f5-c074-448c-97e8-50cff9527884", // 23
+        "https://meyon.com.ye/videos/embed/fe251ede-d9c8-43ad-b0ac-103725340f63", // 24
+        "https://meyon.com.ye/videos/embed/4e0d35a9-5128-4bfe-8307-95024c310cbb", // 25
+        "https://meyon.com.ye/videos/embed/3b459c87-3816-4cf3-8c06-46db693e3e34"  // 26
+    ];
+
+    const grid = document.getElementById('buttonsGrid'); 
+    const player = document.getElementById('videoPlayer'); 
+    const iframe = document.getElementById('mainIframe'); 
+    const titleDisp = document.getElementById('episodeTitle');
+    
     let scrollPosition = 0;
     function lockPage() { scrollPosition = window.scrollY; document.body.style.position = 'fixed'; document.body.style.top = `-${scrollPosition}px`; document.body.style.width = '100%'; }
     function unlockPage() { document.body.style.position = ''; document.body.style.top = ''; document.body.style.width = ''; window.scrollTo(0, scrollPosition); }
-    episodeLinks.forEach((link, index) => { const btn = document.createElement('button'); btn.className = 'ep-btn'; btn.innerText = index + 1; btn.onclick = function() { window.open(adLink, '_blank'); lockPage(); player.style.display = 'block'; iframe.src = link; titleDisp.innerText = "أنت تشاهد الآن: جزيرة الكنز - الحلقة " + (index + 1); document.querySelectorAll('.ep-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); setTimeout(() => { unlockPage(); }, 500); }; grid.appendChild(btn); });
+
+    episodeLinks.forEach((link, index) => { 
+        const btn = document.createElement('button'); 
+        btn.className = 'ep-btn'; 
+        btn.innerText = index + 1; 
+        btn.onclick = function() { 
+            // فتح الإعلان المنبثق في تبويب جديد عند النقر على الحلقة
+            window.open(popupAdLink, '_blank'); 
+            
+            lockPage(); 
+            player.style.display = 'block'; 
+            iframe.src = link; 
+            titleDisp.innerText = "أنت تشاهد الآن: جزيرة الكنز - الحلقة " + (index + 1); 
+            document.querySelectorAll('.ep-btn').forEach(b => b.classList.remove('active')); 
+            btn.classList.add('active'); 
+            setTimeout(() => { unlockPage(); }, 500); 
+        }; 
+        grid.appendChild(btn); 
+    });
 </script>
 </body>
 </html>
